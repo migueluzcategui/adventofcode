@@ -28,7 +28,7 @@ fn main() {
             let (part1, part2) = runner(data);
             duration += instant.elapsed();
 
-            println!("{year} Day {day:02}");
+            println!("{year} Day {day}");
             println!("Result on part 1: {part1}");
             println!("Result on part 2: {part2}");
         } else {

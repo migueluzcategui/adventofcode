@@ -3,13 +3,7 @@
 
 pub mod utils;
 
-macro_rules! library {
-    ($year:tt $description:literal $($day:tt),*) => {
-        #[doc = concat!("# ", $description)]
-        pub mod $year {$(pub mod $day;)*}
-    }
+#[doc = concat!("# ", "2024 Advent of Code solutions.")]
+pub mod year2024 {
+    pub mod day01;
 }
-
-library!(year2024 "2024 Advent of Code solutions."
-    day01
-);
