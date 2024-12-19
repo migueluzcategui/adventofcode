@@ -4,3 +4,7 @@ Welcome to the Advent of Code repository! This project is a collection of soluti
 
 Rust: A systems programming language known for its performance and memory safety.
 Node.js: A JavaScript runtime often praised for its flexibility and widespread adoption.
+
+## License
+
+This project is licensed under the MIT License.
