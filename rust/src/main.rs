@@ -38,6 +38,7 @@ fn main() {
             );
         }
     }
+    println!("Total time: {}ms", duration.as_millis());
 }
 
 struct CodeChallenge {

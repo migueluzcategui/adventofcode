@@ -1,6 +1,7 @@
 import { ChallengeConfig } from "./types";
 import { day01Challenge } from "./year2024/day01";
 import path from "path";
+import { performance } from "perf_hooks";
 import { readFileSync } from "fs";
 
 // Improve this code to handle better argument validation
@@ -43,6 +44,8 @@ const start = (): void => {
     return true;
   });
 
+  const start = performance.now();
+  
   availableChallenges.forEach((challenge) => {
     const pathName = `input/${challenge.year}/${challenge.day}.txt`;
     const filePath = path.resolve(__dirname, "../../", pathName);
@@ -54,6 +57,9 @@ const start = (): void => {
       `Year: ${challenge.year}, Day: ${challenge.day}, Part 1: ${part1Result}, Part 2: ${part2Result}`
     );
   });
+  
+  const end = performance.now();
+  console.log(`Execution time: ${(end - start).toFixed(2)} milliseconds`);
 };
 
 start();
