@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use crate::utils::parser::{parse_string_to_vector_of_integers, Input};
 
 pub fn parse(input: &str) -> Input {
@@ -19,7 +21,20 @@ pub fn part1(input: &Input) -> u32 {
 }
 
 pub fn part2(input: &Input) -> u32 {
-    31
+    let (first_list, second_list) = (input.0.clone(), input.1.clone());
+    let mut mapping: HashMap<u32, u32> = HashMap::new();
+
+    for fl in first_list {
+        mapping.entry(fl).and_modify(|e| *e += 1).or_insert(1);
+    }
+
+    second_list
+        .iter()
+        .map(|sl| match mapping.get(sl) {
+            Some(size) => sl * size,
+            None => 0,
+        })
+        .sum()
 }
 
 #[cfg(test)]
