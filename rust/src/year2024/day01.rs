@@ -5,13 +5,17 @@ pub fn parse(input: &str) -> Input {
 }
 
 pub fn part1(input: &Input) -> u32 {
-    let mut left = input.0.clone();
-    left.sort_unstable();
+    // Clone and sort both lists in a single statement
+    let (mut first_list, mut second_list) = (input.0.clone(), input.1.clone());
+    first_list.sort_unstable();
+    second_list.sort_unstable();
 
-    let mut right = input.1.clone();
-    right.sort_unstable();
-
-    left.iter().zip(right).map(|(l, r)| l.abs_diff(r)).sum()
+    // merge the two lists and sum the absolute differences
+    first_list
+        .iter()
+        .zip(second_list)
+        .map(|(first_list_item, second_list_item)| first_list_item.abs_diff(second_list_item))
+        .sum()
 }
 
 pub fn part2(input: &Input) -> u32 {

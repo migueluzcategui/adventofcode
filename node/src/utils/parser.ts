@@ -9,7 +9,7 @@ export const parseStringToVectorOfIntegers = (data: string): InputParsed => {
   const secondVector: number[] = [];
 
   lines.forEach((line) => {
-    const [valueA, valueB] = line.split(" ");
+    const [valueA, valueB] = line.trim().split(/\s+/);
     firstVector.push(parseInt(valueA, 10));
     secondVector.push(parseInt(valueB, 10));
   });
