@@ -1,8 +1,25 @@
-import { InputParsed, parseStringToVectorOfIntegers } from "../utils/parser";
+import { Challenge } from "../../types";
 
-import { Challenge } from "../types";
+type InputParsed = {
+  firstVector: number[];
+  secondVector: number[];
+};
 
-export const day01Challenge: Challenge = {
+const parseStringToVectorOfIntegers = (data: string): InputParsed => {
+  const lines = data.split("\n");
+  const firstVector: number[] = [];
+  const secondVector: number[] = [];
+
+  lines.forEach((line) => {
+    const [valueA, valueB] = line.trim().split(/\s+/);
+    firstVector.push(parseInt(valueA, 10));
+    secondVector.push(parseInt(valueB, 10));
+  });
+
+  return { firstVector, secondVector };
+};
+
+export const day01Challenge: Challenge<InputParsed> = {
   parse: parseStringToVectorOfIntegers,
   part1: (data: InputParsed) => {
     let distance = 0;
@@ -72,10 +89,10 @@ export const day01Challenge: Challenge = {
   // },
   /**
    * Second approach,
-   * 
+   *
    * here I am creating a map with the values of the second vector and the number of times they appear.
    * Then I loop through the first vector, and get the value from the map, if it exists, and add the value * count to the score.
-   * 
+   *
    * This approach has a complexity of O(n)
    */
   part2: (data: InputParsed) => {

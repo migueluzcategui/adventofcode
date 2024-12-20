@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
-import { day01Challenge } from "./day01";
+import { day01Challenge } from "./index";
 
 describe("2024 - Day 1", () => {
   test("Part 1", () => {

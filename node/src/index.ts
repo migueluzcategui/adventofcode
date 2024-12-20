@@ -1,6 +1,7 @@
+import { day01Challenge, day02Challenge } from "./year2024";
+
 import { ChallengeConfig } from "./types";
 import chalk from 'chalk';
-import { day01Challenge } from "./year2024/day01";
 import path from "path";
 import { performance } from "perf_hooks";
 import { readFileSync } from "fs";
@@ -29,6 +30,11 @@ const challenges: ChallengeConfig[] = [
     day: "day01",
     year: "year2024",
     challenge: day01Challenge,
+  },
+  {
+    day: "day02",
+    year: "year2024",
+    challenge: day02Challenge,
   },
 ];
 
