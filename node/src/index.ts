@@ -1,4 +1,4 @@
-import { day01Challenge, day02Challenge } from "./year2024";
+import { day01Challenge, day02Challenge, day03Challenge } from "./year2024";
 
 import { ChallengeConfig } from "./types";
 import chalk from 'chalk';
@@ -35,6 +35,11 @@ const challenges: ChallengeConfig[] = [
     day: "day02",
     year: "year2024",
     challenge: day02Challenge,
+  },
+  {
+    day: "day03",
+    year: "year2024",
+    challenge: day03Challenge,
   },
 ];
 
