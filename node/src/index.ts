@@ -1,13 +1,5 @@
-import {
-  day01Challenge,
-  day02Challenge,
-  day03Challenge,
-  day04Challenge,
-  day05Challenge,
-} from "./year2024";
-
-import { ChallengeConfig } from "./types";
 import chalk from "chalk";
+import { challenges2024 } from "./challenges";
 import path from "path";
 import { performance } from "perf_hooks";
 import { readFileSync } from "fs";
@@ -31,39 +23,11 @@ const extractYearAndDay = (): { year?: string; day?: string } => {
   return { year: undefined, day: undefined };
 };
 
-const challenges: ChallengeConfig[] = [
-  {
-    day: "day01",
-    year: "year2024",
-    challenge: day01Challenge,
-  },
-  {
-    day: "day02",
-    year: "year2024",
-    challenge: day02Challenge,
-  },
-  {
-    day: "day03",
-    year: "year2024",
-    challenge: day03Challenge,
-  },
-  {
-    day: "day04",
-    year: "year2024",
-    challenge: day04Challenge,
-  },
-  {
-    day: "day05",
-    year: "year2024",
-    challenge: day05Challenge,
-  },
-];
-
 const start = (): void => {
   const { year, day } = extractYearAndDay();
 
   // Filter the challenges based on the year and day provided
-  const availableChallenges = challenges.filter((challenge) => {
+  const availableChallenges = challenges2024.filter((challenge) => {
     if (day !== undefined) {
       return challenge.year === year && challenge.day === day;
     }
