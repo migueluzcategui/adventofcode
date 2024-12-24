@@ -1,7 +1,13 @@
-import { day01Challenge, day02Challenge, day03Challenge, day04Challenge } from "./year2024";
+import {
+  day01Challenge,
+  day02Challenge,
+  day03Challenge,
+  day04Challenge,
+  day05Challenge,
+} from "./year2024";
 
 import { ChallengeConfig } from "./types";
-import chalk from 'chalk';
+import chalk from "chalk";
 import path from "path";
 import { performance } from "perf_hooks";
 import { readFileSync } from "fs";
@@ -45,7 +51,12 @@ const challenges: ChallengeConfig[] = [
     day: "day04",
     year: "year2024",
     challenge: day04Challenge,
-  }
+  },
+  {
+    day: "day05",
+    year: "year2024",
+    challenge: day05Challenge,
+  },
 ];
 
 const start = (): void => {
@@ -79,17 +90,19 @@ const start = (): void => {
       throw new Error("Input file not found");
     }
     const parsedData = challenge.challenge.parse(fileContents);
-   
+
     const part1Start = performance.now();
     const part1Result = challenge.challenge.part1(parsedData);
     const part1End = performance.now();
-   
+
     const part2Start = performance.now();
     const part2Result = challenge.challenge.part2(parsedData);
     const part2End = performance.now();
-    
+
     console.log(
-      chalk.bold(`\n${chalk.greenBright(`Year: ${challenge.year}, Day: ${challenge.day}`)}`)
+      chalk.bold(
+        `\n${chalk.greenBright(`Year: ${challenge.year}, Day: ${challenge.day}`)}`
+      )
     );
     console.log(
       chalk.blueBright(
