@@ -5,6 +5,7 @@ import {
   day04Challenge,
   day05Challenge,
   day06Challenge,
+  day07Challenge
 } from "./year2024";
 
 import { ChallengeConfig } from "./types";
@@ -39,5 +40,10 @@ export const challenges2024: ChallengeConfig[] = [
     day: "day06",
     year: "year2024",
     challenge: day06Challenge,
+  },
+  {
+    day: "day07",
+    year: "year2024",
+    challenge: day07Challenge,
   },
 ];
