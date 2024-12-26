@@ -1,7 +1,7 @@
 import { Challenge } from "../../types";
 
 type Input = { result: number; values: number[] };
-type InputParsed = Input[];
+export type InputParsed = Input[];
 
 const isAValidTestValue = (
   input: Input,
