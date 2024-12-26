@@ -1,7 +1,7 @@
 import { Challenge } from "../../types";
 
 type Input = { result: number; values: number[] };
-export type InputParsed = Input[];
+export type InputParsedChallenge07 = Input[];
 
 const isAValidTestValue = (
   input: Input,
@@ -52,8 +52,8 @@ const isAValidTestValue = (
   return possiblePermutations.includes(result);
 };
 
-export const day07Challenge: Challenge<InputParsed> = {
-  parse: (data: string): InputParsed => {
+export const day07Challenge: Challenge<InputParsedChallenge07> = {
+  parse: (data: string): InputParsedChallenge07 => {
     return data.split("\n").map((line) => {
       const [result, rawValues] = line.split(": ");
       return {
@@ -62,7 +62,7 @@ export const day07Challenge: Challenge<InputParsed> = {
       };
     });
   },
-  part1: (data: InputParsed): number => {
+  part1: (data: InputParsedChallenge07): number => {
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       if (isAValidTestValue(JSON.parse(JSON.stringify(data[i])))) {
@@ -71,7 +71,7 @@ export const day07Challenge: Challenge<InputParsed> = {
     }
     return total;
   },
-  part2: (data: InputParsed): number => {
+  part2: (data: InputParsedChallenge07): number => {
     let total = 0;
     for (let i = 0; i < data.length; i++) {
       if (isAValidTestValue(JSON.parse(JSON.stringify(data[i])), true)) {

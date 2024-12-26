@@ -7,7 +7,7 @@ export enum Direction {
   RIGHT = "R",
 }
 
-export type InputParsed = {
+export type InputParsedChallenge06 = {
   map: string[][];
   vigilant: {
     x: number;
@@ -46,7 +46,7 @@ const movementGuide: {
 };
 
 export const evaluateMovements = (
-  { map, vigilant }: InputParsed,
+  { map, vigilant }: InputParsedChallenge06,
   obstaclePosition?: { x: number; y: number }
 ): Set<string> => {
   const uniqueVisitedMovements = new Set<string>(); // x,y
@@ -101,8 +101,8 @@ export const evaluateMovements = (
   return obstaclePosition ? undefined : uniqueVisitedMovements;
 };
 
-export const day06Challenge: Challenge<InputParsed> = {
-  parse: (input: string): InputParsed => {
+export const day06Challenge: Challenge<InputParsedChallenge06> = {
+  parse: (input: string): InputParsedChallenge06 => {
     const map = input.split("\n").map((line) => line.split(""));
 
     const vigilantYPosition = map.findIndex((line) => line.includes("^"));
@@ -116,10 +116,10 @@ export const day06Challenge: Challenge<InputParsed> = {
       },
     };
   },
-  part1: (input: InputParsed): number => {
+  part1: (input: InputParsedChallenge06): number => {
     return evaluateMovements(JSON.parse(JSON.stringify(input))).size;
   },
-  part2: (input: InputParsed) => {
+  part2: (input: InputParsedChallenge06) => {
     let count = 0;
     const movements = evaluateMovements(JSON.parse(JSON.stringify(input)));
     movements.forEach((pos: string) => {
